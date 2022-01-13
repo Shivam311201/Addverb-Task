@@ -1,13 +1,13 @@
 import React,{useContext,useState,useEffect} from "react";
-import Navbar from "./NavBar";
+import { useParams } from "react-router";
 import { countryContext } from "../ContextFolder/countryContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretRight } from "@fortawesome/free-solid-svg-icons";
 import { LoadingContext } from "../ContextFolder/loadingContext";
-import { Row,Col } from "react-bootstrap";
 import { dataContext } from "../ContextFolder/dataContext";
-import { useParams } from "react-router";
 import { CircularProgress } from "@material-ui/core";
+import { Row,Col } from "react-bootstrap";
+import Navbar from "./NavBar";
 
 function SingleCountry()
 {
@@ -18,16 +18,18 @@ function SingleCountry()
     const [winHeight,setHeight]=useState(window.innerHeight);
     const [winWidth,setWidth]=useState(window.innerWidth);
 
-    data?.map((item)=>{
-        if(item.name.official===name)
-        setCountry(item);
-    });
-    console.log(country.languages);
+    useEffect(()=>{
+        data?.map((item)=>{
+            if(item.name.official===name)
+            setCountry(item);
+        });    
+    },[data]);
+
     useEffect(() => {
         function handleResize() {
           setHeight(window.innerHeight);
           setWidth(window.innerWidth);
-    }
+        }
         window.addEventListener('resize', handleResize)
     });
 
@@ -42,7 +44,7 @@ function SingleCountry()
         {country.name.official}</div>
         <Row style={{display:"flex"}}>
            <Col lg={3} md={3} sm={3} xs={3} className="detailsTitle">
-           <FontAwesomeIcon icon={faCaretRight} size="md" className="arrow"/>Capital:
+           <FontAwesomeIcon icon={faCaretRight} className="arrow"/>Capital:
            </Col> 
            <Col lg={9} md={9} sm={9} xs={9} className="details">
             {country.capital}
@@ -50,7 +52,7 @@ function SingleCountry()
         </Row>
         <Row style={{display:"flex"}}>
            <Col lg={3} md={3} sm={3} xs={3} className="detailsTitle">
-           <FontAwesomeIcon icon={faCaretRight} size="md" className="arrow"/>Region:
+           <FontAwesomeIcon icon={faCaretRight} className="arrow"/>Region:
            </Col> 
            <Col lg={9} md={9} sm={9} xs={9} className="details">
             {country.region}
@@ -58,7 +60,7 @@ function SingleCountry()
         </Row>
         <Row style={{display:"flex"}}>
            <Col lg={3} md={3} sm={3} xs={3} className="detailsTitle">
-           <FontAwesomeIcon icon={faCaretRight} size="md" className="arrow"/>Subregion:
+           <FontAwesomeIcon icon={faCaretRight} className="arrow"/>Subregion:
            </Col> 
            <Col lg={9} md={9} sm={9} xs={9} className="details">
             {country.subregion}
@@ -66,7 +68,7 @@ function SingleCountry()
         </Row>
         <Row style={{display:"flex"}}>
            <Col lg={3} md={3} sm={3} xs={3} className="detailsTitle">
-           <FontAwesomeIcon icon={faCaretRight} size="md" className="arrow"/>Population:
+           <FontAwesomeIcon icon={faCaretRight} className="arrow"/>Population:
            </Col> 
            <Col lg={9} md={9} sm={9} xs={9} className="details">
             {country.population}
@@ -74,7 +76,7 @@ function SingleCountry()
         </Row>
         <Row style={{display:"flex"}}>
            <Col lg={3} md={3} sm={3} xs={3} className="detailsTitle">
-           <FontAwesomeIcon icon={faCaretRight} size="md" className="arrow"/>Borders:
+           <FontAwesomeIcon icon={faCaretRight} className="arrow"/>Borders:
            </Col> 
            <Col lg={9} md={9} sm={9} xs={9} className="details">
                {country?.borders?.map((item,key)=>(
@@ -84,7 +86,7 @@ function SingleCountry()
         </Row>
         <Row style={{display:"flex"}}>
            <Col lg={3} md={3} sm={3} xs={3} className="detailsTitle">
-           <FontAwesomeIcon icon={faCaretRight} size="md" className="arrow"/>Languages:
+           <FontAwesomeIcon icon={faCaretRight} className="arrow"/>Languages:
            </Col> 
            <Col lg={9} md={9} sm={9} xs={9} className="details">
            {Object.keys(country.languages)?.map((item,key)=>(

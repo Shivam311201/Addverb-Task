@@ -23,13 +23,13 @@ function App()
     setloading(false);
   } 
   MyData();
-
-    return (<Router>
-       <Routes>
-         <Route exact path="/" element={<Home/>}/>
-         <Route exact path="/:name" element={<SingleCountry/>}/>
-       </Routes>
-     </Router>);
+  
+  return (<Router>
+     <Routes>
+       <Route exact path="/" element={<Home/>}/>
+       <Route exact path="/:name" element={<SingleCountry/>}/>
+     </Routes>
+    </Router>);
 }
 
 export default App;

@@ -4,14 +4,17 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { countryContext } from "../ContextFolder/countryContext";
 import { useNavigate } from "react-router";
 import "./styles.css";
+
 function List(props) {
     const [country, setCountry]=useContext(countryContext);
     const navigate=useNavigate();
+
     function setList(item)
     {
       setCountry(item);
       navigate("/"+item.name.official);
     }
+
     return (<div>
     <div className="listTitle">
     <FontAwesomeIcon icon={faCaretRight} size="lg" className="arrow"/>Asia</div>

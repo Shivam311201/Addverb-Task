@@ -1,9 +1,9 @@
 import React,{ useContext,useEffect,useState } from "react";
-import Navbar from "./NavBar";
-import List from "./list";
 import { CircularProgress } from "@material-ui/core";
 import { LoadingContext } from "../ContextFolder/loadingContext";
 import { dataContext } from "../ContextFolder/dataContext";
+import Navbar from "./NavBar";
+import List from "./list";
 
 function Home()
 {
@@ -29,6 +29,6 @@ function Home()
         {!loading&&<List data={data}/>}
         </div>
         </div>
-       </div>)
+       </div>);
 }
 export default Home;

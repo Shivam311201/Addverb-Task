@@ -28,7 +28,6 @@
     }
   }
 .Refresh:hover{
-    filter: drop-shadow(1px 1px 1.5px darksalmon);
     color:darksalmon;
     cursor: pointer;
     transition-duration: 0.3s;
