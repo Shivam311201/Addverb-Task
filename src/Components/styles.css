@@ -42,17 +42,17 @@
 .listBackground{
     display: flex;
     justify-content: space-around;
-    background: url(http://i1.cdn-image.com/__media__/pics/12471/bodybg.png);
+    background: url("../Images/Image1.png");
     height:max-content;
 }
 .CountryBackground{
     display: flex;
     justify-content: space-around;
-    background: url(http://i1.cdn-image.com/__media__/pics/12471/bodybg.png);
+    background: url("../Images/Image2.png");
 }
 .listOuterBox{
     width:800px;
-    background: url(http://i1.cdn-image.com/__media__/pics/12471/kwbg.jpg);
+    background: url("../Images/Image3.jpg");
     padding-bottom: 20px;
 }
 .listTitle{
