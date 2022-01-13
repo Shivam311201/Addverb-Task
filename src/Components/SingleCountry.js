@@ -33,7 +33,7 @@ function SingleCountry()
         window.addEventListener('resize', handleResize)
     });
 
-    return (<div className="body" style={{width:winWidth}}>
+    return (<div className="body">
         <Navbar/>
         <div className="CountryBackground" style={{minHeight:winHeight-20}}>
         <div className="listOuterBox" style={winWidth<=500?{width:winWidth}:{}}>
